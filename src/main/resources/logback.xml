@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <!-- 控制台日志 -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoding>UTF-8</encoding>
         <encoder>
@@ -10,6 +11,7 @@
         </filter>
     </appender>
 
+    <!-- mmall项目日志 -->
     <appender name="mmall" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--<File>d:/mmalllog/mmall.log</File>-->
         <File>/developer/apache-tomcat-7.0.73/logs/mmall.log</File>
@@ -23,7 +25,7 @@
         </encoder>
     </appender>
 
-
+    <!-- 只打error日志 -->
     <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--<File>d:/mmalllog/error.log</File>-->
         <File>/developer/apache-tomcat-7.0.73/logs/error.log</File>
@@ -50,8 +52,7 @@
 
 
 
-    <!-- geelynote mybatis log 日志 -->
-
+    <!-- dao层SQL日志 -->
     <logger name="com.mmall.dao" level="DEBUG"/>
 
     <!--<logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="DEBUG" >-->
@@ -69,7 +70,7 @@
         <!--<appender-ref ref="console"/>-->
     <!--</logger>-->
 
-
+    <!-- 根目录日志 -->
     <root level="DEBUG">
         <appender-ref ref="console"/>
         <appender-ref ref="error"/>
